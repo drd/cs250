@@ -5,9 +5,13 @@ Here we go, .tex and .pdf of the cheat sheets. The previous one was full-cheat-s
 
 TODO
 ----
-
-- convert a bunch of display math in ch5 to inline math to save space
-- finish 5.4
-- start 5.5 (gregoryhaynes) and 5.6 (dcolish)
-- fit onto 2 pages
 - export as PDF 2-up on single page
+- finish 5.5 (greghaynes)
+
+DONE
+----
+- convert a bunch of display math in ch5 to inline math to save space
+- start 5.5 (greghaynes) and 5.6 (dcolish)
+- finish 5.4
+- finish 5.6
+- fit onto 2 pages

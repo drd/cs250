@@ -6,10 +6,19 @@
 \pdfpagewidth 8.5in
 \pdfpageheight 11in 
 
+\newenvironment{packed_list}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\pagestyle{empty}
+
 \setlength\topmargin{-.625in}
 \setlength\headheight{0in}
 \setlength\headsep{0in}
-\setlength\textheight{9.5in}
+\setlength\textheight{10in}
 \setlength\textwidth{7.75in}
 \setlength\oddsidemargin{-.625in}
 \setlength\evensidemargin{.25in}
@@ -17,114 +26,131 @@
 \setlength\footskip{0.5in}
 
 \begin{document}
-	\section*{5.1 Analyzing Algorithms}
+	\paragraph*{Analyzing Algorithms}
+	The Optimal Algorithm Problem: Suppose algorithm $A$ solves
+        problem $P$. Is $A$ the best solution to $P$?
 	
-	The Optimal Algorithm Problem: Suppose algorithm $A$ solves problem $P$. Is $A$ the best solution to $P$?
+	\paragraph*{Definition of Optimal in the Worst Case} An algorith
+        $A$ is \emph{optimal in the worst case} for problem $P$, if
+        for any algorithm $B$ that exists, or ever will exist, the
+        following relationship holds:
+	\begin{center}$W_A(n)\leq W_B(n),\forall n>0.$\end{center}
 	
-	\subsection*{5.1.1 Worst-Case Running Time}
-	
-	\textbf{Definition of Optimal in the Worst Case} An algorith $A$ is \emph{optimal in the worst case} for problem $P$, if for any algorithm $B$ that exists, or ever will exist, the following relationship holds:
-	
-	\[W_A(n)\leq W_B(n),\forall n>0.\]
-	
-	\subsection*{5.1.2 Decision Trees}
-	
+	\paragraph*{Decision Trees}
 	Lower bound on a k-ary decision tree of depth n: $\lceil log_k n\rceil$
 	
-	\subsection*{5.2 Summations Facts}
-	a. $\displaystyle \sum_{k=m}^n \mathrm{c} = (n - m + 1)\mathrm{c}$ \\
-	b. $\displaystyle \sum_{k=m}^n \mathrm{c a_\mathit{k}} = c
-	\displaystyle\sum_{k=m}^n \mathrm{a_\mathit{k}}$\\
-	c. $\displaystyle\sum_{k=1}^n (a_\mathit{k} - a_\mathit{k - 1}) =
-	a_\mathit{n} - a_\mathit{0}$ \\
-		and $ \displaystyle\sum_{k=1}^n
-	(a_\mathit{k - 1} - a_\mathit{k}) = a_\mathit{0} - a_\mathit{n}$\\
-	d. $\displaystyle\sum_{k=m}^n (a_\mathit{k} + b_\mathit{k}) =
-	\displaystyle\sum_{k=m}^n a_\mathit{k} + \displaystyle\sum_{k=m}^n
-	b_\mathit{k}$\\
-	e. $\displaystyle\sum_{k=m}^n a_\mathit{k} = \displaystyle\sum_{k=m}^i
-	a_\mathit{k} +  \displaystyle\sum_{k=i+1}^n a_\mathit{k}$\\
-	f. $\displaystyle\sum_{k=m}^n a_\mathit{k}x^\mathit{k+i} = 
-	x^\mathit{i} \sum_{k=m}^n a_\mathit{k}x^\mathit{k}$\\
-	g. $\displaystyle\sum_{k=m}^n a_\mathit{k+i} = \displaystyle\sum_{k=m+i}^{n+1}
-	a_\mathit{k}$\\
+	\paragraph*{Summations Facts}
+        \begin{packed_list}
+	\item[a.] $ \sum_{k=m}^n \mathrm{c} = (n - m + 1)\mathrm{c}$ 
+	\item[b.] $ \sum_{k=m}^n \mathrm{c a_\mathit{k}} = c
+	\sum_{k=m}^n \mathrm{a_\mathit{k}}$
+	\item[c.] $\sum_{k=1}^n (a_\mathit{k} - a_\mathit{k - 1}) =
+	a_\mathit{n} - a_\mathit{0}$ 
+		and $ \sum_{k=1}^n
+	(a_\mathit{k - 1} - a_\mathit{k}) = a_\mathit{0} - a_\mathit{n}$
+	\item[d.] $\sum_{k=m}^n (a_\mathit{k} + b_\mathit{k}) =
+	\sum_{k=m}^n a_\mathit{k} + \sum_{k=m}^n
+	b_\mathit{k}$
+	\item[e.] $\sum_{k=m}^n a_\mathit{k} = \sum_{k=m}^i
+	a_\mathit{k} +  \sum_{k=i+1}^n a_\mathit{k}$
+	\item[f.] $\sum_{k=m}^n a_\mathit{k}x^\mathit{k+i} = 
+	x^\mathit{i} \sum_{k=m}^n a_\mathit{k}x^\mathit{k}$
+	\item[g.] $\sum_{k=m}^n a_\mathit{k+i} = \sum_{k=m+i}^{n+1}
+	a_\mathit{k}$
+        \end{packed_list}
 
-	\subsection*{Sum of Powers}
+	\paragraph*{Sum of Powers}
 	When doing powers of sums we can use the form of $k^m$ can also be
-	represented as \[k^{m+1} - ( k + 1)^{m+1}.\]
+	represented as $k^{m+1} - ( k + 1)^{m+1}.$
 
-	\subsection*{Closed Forms of Elementary Finite Sums}
-	a. $\displaystyle\sum_{k=1}^n k = \frac{n(n+1)}{2}$\\
-	b. $\displaystyle\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$\\
-	c. $\displaystyle\sum_{k=0}^n a^k = \frac{a^{n+1} - 1}{a -1} ( a \neq
-	1)$\\
-	d. $\displaystyle\sum_{k=1}^n ka^k = \frac{a - (n + 1)a^{n+1} +
-	  na^{n+2}}{(a-1)^2} (a \neq 1)$\\
+	\subsubsection*{Closed Forms of Elementary Finite Sums}
+	\begin{packed_list}
+        \item[a.] $\sum_{k=1}^n k = \frac{n(n+1)}{2}$
+	\item[b.] $\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$
+	\item[c.] $\sum_{k=0}^n a^k = \frac{a^{n+1} - 1}{a -1} ( a \neq
+	1)$
+	\item[d.] $
+\sum_{k=1}^n ka^k = \frac{a - (n + 1)a^{n+1} +
+	  na^{n+2}}{(a-1)^2} (a \neq 1)$
+        \end{packed_list}
 
-	\subsection*{Abel's Summation Tranformation}
-	$\displaystyle\sum_{k=0}^n a_kb_k = \mathit{A}_nb_n + \sum_{k=0}^{n-1}
+	\subsubsection*{Abel's Summation Tranformation}
+	$\sum_{k=0}^n a_kb_k = \mathit{A}_nb_n + \sum_{k=0}^{n-1}
 	\mathit{A}_k(b_k - b_{k+1}),\\
 	  \:where\:A_k = \sum_{i=0}^k a_k$
 	
-	\subsection*{5.3 Counting Rules}
-	If there are \textit{m} choices for some event and \textit{n} choices for another event to occur and events are disjoint, then there are \textit{m + n} choices for either event to occur. \\
-	If there are \textit{m} choices for some event and \textit{n} choices for another event, then there are \textit{mn} choices for both events.
-	\subsection*{Permutations}
+
+	\paragraph*{Counting Rules}
+	If there are \textit{m} choices for some event and \textit{n}
+        choices for another event to occur and events are disjoint,
+        then there are \textit{m + n} choices for either event to occur. \\
+	If there are \textit{m} choices for some event and \textit{n}
+        choices for another event, then there are \textit{mn} choices
+        for both events.
+
+	\paragraph*{Permutations}
 	An arangement (or ordering) of distinct objects without replacement. \\
 	The number of permutations of \textit{n} distinct objects is \textit{n!}. \\
-	An \textit{r-permutation} of \textit{n} objects is a permutation of \textit{r} of the objects. \\
+	An \textit{r-permutation} of \textit{n} objects is a
+        permutation of \textit{r} of the objects. \\
 	The number of r-permutations of \textit{n} distinct objects is
 	\[P(n, r)=\frac{n!}{(n - r)!}\]
-	B is an \textit{n}-element bag with \textit{k} distinct elements, where each of the numbers $m_1,\ldots,m_k$ denotes number of occurences of each element.  The number of permutations of the \textit{n} elements of B is \[\frac{n!}{m_1! \ldots m_k!}\]
-	\subsection*{Combinations}
+	B is an \textit{n}-element bag with \textit{k} distinct
+        elements, where each of the numbers $m_1,\ldots,m_k$ denotes
+        number of occurences of each element.  The number of
+        permutations of the \textit{n} elements of B is \[\frac{n!}{m_1! \ldots m_k!}\]
+
+	\paragraph*{Combinations}
 	Chosing some objects from set of objects without order.
-	An \textit{r-combination} of \textit{n} distinct objects is a combination of \textit{r} of the objects.  The number of \textit{r-combinations} chosen from \textit{n} distinct objects is
-	\[C(n,r)=\frac{n!}{r!(n-r)!}\]
-	\[(x+y)^n=\sum_{k=0}^nC(n,r)x^{n-k}y^k\]
-	The number of \textit{k}-element bags whose distinct elements are chosen from an \textit{n}-element set, where \textit{k} and \textit{n} are positive, is given by
-	\[C(n+k-1, k)\]
+	An \textit{r-combination} of \textit{n} distinct objects is a
+        combination of \textit{r} of the objects. The number of
+        \textit{r-combinations} chosen from \textit{n} distinct objects is
+	\begin{center}$C(n,r)=\frac{n!}{r!(n-r)!}$ or $(x+y)^n=\sum_{k=0}^nC(n,r)x^{n-k}y^k$\end{center}
+	The number of \textit{k}-element bags whose distinct elements
+        are chosen from an \textit{n}-element set, where \textit{k}
+        and \textit{n} are positive, is given by $C(n+k-1, k)$
 
-
-	\section*{5.4 Discrete Probability}
-
-	\subsection*{5.4.1 Probability Terminology}
-
-	\par\textbf{Probability Distribution} A \emph{probability distribution} on a sample space $S$ is an assignment of probabilities to the points of $S$ such that the sum of all the probabilities is 1.
-	\par\noindent\textbf{Probability of an Event} The \emph{probability} of an event $E$ is denoted by $P(E)$ and is defined by
-	\[P(E)=\sum_{x\in E}P(x).\]
+	\paragraph*{Probability Distribution} A \emph{probability
+          distribution} on a sample space $S$ is an assignment of
+        probabilities to the points of $S$ such that the sum of all
+        the probabilities is 1.
+	\textbf{Probability of an Event} The \emph{probability} of an
+        event $E$ is denoted by $P(E)$ and is defined by
+	\begin{center}$P(E)=\sum_{x\in E}P(x)$\end{center}
 	For instance, $P(S)=1$ and $P(\emptyset)=0$; $P(A\cup B)=P(A)+P(B)-P(A\cap B); P(E')=1-P(E)$
 	
-	\subsection*{5.4.2 Conditional Probability}
-	
-	\textbf{Conditional Probability} If $A$ and $B$ are events and $P(B)\neq0$, then \emph{the conditional probability of A given B} is denoted by $P(A\mid B)$ and defined by
-	\[P(A\mid B)=\frac{P(A\cap B)}{P(B)}\]
-	\[P(A\cap B)=P(B)P(A\mid B)\]
-	\[P(A\cap B)=P(A)P(B\mid A)\]
+	\paragraph*{Conditional Probability} If $A$ and $B$ are events and
+        $P(B)\neq0$, then \emph{the conditional probability of A given
+          B} is denoted by $P(A\mid B)$ and defined by
+	\begin{packed_list}
+          \item $P(A\mid B)=\frac{P(A\cap B)}{P(B)}$
+	\item $P(A\cap B)=P(B)P(A\mid B)$
+	\item $P(A\cap B)=P(A)P(B\mid A)$
+          \end{packed_list}
 
 	\subsubsection*{Bayes' Theorem}
 	\[P(H_i\mid E)=\frac{P(H_i\cap E)}{P(H_1\cup E)+\ldots+P(H_n\cap E)}\]
 	\[P(H_i\mid E)=\frac{P(H_i\cap E)}{P(H_1)P(E\mid H_1)+\ldots+P(H_n)P(E\mid  H_n)}\]
 	
-	\subsection*{5.4.3 Independent Events}
+	\paragraph*{5.4.3 Independent Events}
+	Two events $A$ and $B$ are \emph{independent} if the following
+        equation holds: $P(A \cap B)=P(A)P(B)$.
 	
-	Two events $A$ and $B$ are \emph{independent} if the following equation holds: $P(A \cap B)=P(A)P(B)$.
-	
-	\subsubsection*{Binomial Distribution}
-	\[\binom{n}{k}p^k(1-p)^{n-k}\]
+	\paragraph*{Binomial Distribution}
+	$\binom{n}{k}p^k(1-p)^{n-k}$
 
-	\subsection*{5.5.1 Solving Recurrences by Substitution}
-	Substitute occurences $f_n$ on right side of equation until pattern emerges. example:
-		\[f_0=b_0\]
-		\[f_n=2f_{n-1}+n\]
-		\[f_n=2^2r_{n-2}+2(n-1)+n\]
-		\[\ldots\]
+	\paragraph*{Solving Recurrences by Substitution}
+	Substitute occurences $f_n$ on right side of equation until pattern emerges.
+	\begin{flushleft}$f_0=b_0$ and $f_n=2f_{n-1}+n$ and $f_n=2^2r_{n-2}+2(n-1)+n$\end{flushleft}
 	
-	\subsection*{Solving Recurrences by Cancellation}
-	Write succeeding equations for $f_n$ such that the term on the left side is the same as the term that contains $f$ on the right side of previous equation. example:
-		\[r_n=2_{n-1}+n\]
-		\[2r_{n-1}=2^2r_{n-2}+2(n-1)\]
-		\[\ldots\]
-		\[2^{n-1}r_1=2^nr_0+2^{n-1}\]
+	\paragraph*{Solving Recurrences by Cancellation}
+	Write succeeding equations for $f_n$ such that the term on the
+        left side is the same as the term that contains $f$ on the
+        right side of previous equation.
+        \begin{flushleft}$r_n=2_{n-1}+n$ and
+          $2r_{n-1}=2^2r_{n-2}+2(n-1)$
+          $\ldots$ $2^{n-1}r_1=2^nr_0+2^{n-1}$
+        \end{flushleft}
 	Add equations, cancel like terms, replace $r_0$ by its value.
 	
 	\subsection*{5.5.2 Divide-and-Conquer recurrences}
@@ -138,12 +164,14 @@
 	\subsection{Geometric Series}
 		\[\frac{1}{1-x}=\sum_{n=0}^\infty x^n\]
 	
-	\section*{5.6 - Comparing Rates of Growth}
-    Big Oh (Big-O) can be defined as \textit{the growth rate of f is bounded above by the growth rate of g} if there exists positive numbers \textit{c} and \textit{m} such that \\
-    \[ |f(n)| \leq c|g(n)| \: \textrm{for}\: n\geq m\]\\
-    In this case we write $f(n) = O(g(n))$ and we say the $f(n)$ is \textit{big oh of $g(n)$}\\
-    \textbf{Properties of Big Oh}\\
-    \begin{itemize}
+        \paragraph*{Comparing Rates of Growth}
+        Big Oh (Big-O) can be defined as \textit{the growth rate of f is
+          bounded above by the growth rate of g} if there exists positive
+        numbers \textit{c} and \textit{m} such that $|f(n)| \leq
+        c|g(n)| \: \textrm{for}\: n\geq m$. In this case we write $f(n)
+        = O(g(n))$ and we say the $f(n)$ is \textit{big oh of $g(n)$}
+        \textbf{Properties of Big Oh}
+       \begin{itemize}
         \item[a.] $f(n)=O(f(n))$
         \item[b.] If $f(n)=O(g(n))$ and $ g(n)=O(h(n))$, then $f(n)=O(h(n))$
         \item[c.] If $0\leq f(n) \leq g(n)$ for all $n \geq m$, then $f(n)=O(g(n))$
