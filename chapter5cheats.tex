@@ -113,19 +113,30 @@
 	\[\binom{n}{k}p^k(1-p)^{n-k}\]
 
 	\subsection*{5.5.1 Solving Recurrences by Substitution}
-	Substitute occurences $f_n$ on right side of equation until pattern emerges.
+	Substitute occurences $f_n$ on right side of equation until pattern emerges. example:
 		\[f_0=b_0\]
 		\[f_n=2f_{n-1}+n\]
 		\[f_n=2^2r_{n-2}+2(n-1)+n\]
 		\[\ldots\]
 	
 	\subsection*{Solving Recurrences by Cancellation}
-	Write succeeding equations for $f_n$ such that the term on the left side is the same as the term that contains $f$ on the right side of previous equation.
+	Write succeeding equations for $f_n$ such that the term on the left side is the same as the term that contains $f$ on the right side of previous equation. example:
 		\[r_n=2_{n-1}+n\]
 		\[2r_{n-1}=2^2r_{n-2}+2(n-1)\]
 		\[\ldots\]
 		\[2^{n-1}r_1=2^nr_0+2^{n-1}\]
 	Add equations, cancel like terms, replace $r_0$ by its value.
+	
+	\subsection*{5.5.2 Divide-and-Conquer recurrences}
+	Consider algorithm that splits a problem of size n into a smaller problems, where each subproblem has size n/b.  Let $T(n)$ be total operations to solve problem of size $n$.
+		\[T(n)=aT(n/b)+f(n)\]
+	
+	\subsection*{5.5.3 Generating Functions}
+	The generating function for the sequence $a_0, a_1, \ldots, a_n$ is
+		\[\sum_{n=0}^\infty a_nx^n\]
+		\[\frac{1}{(1-x)^{k+1}}=\sum_{n=0}^\infty \binom{k+n}{n}x^n r \in \mathbb{N}
+	\subsection{Geometric Series}
+		\[\frac{1}{1-x}=\sum_{n=0}^\infty x^n\]
 	
 	\section*{5.6 - Comparing Rates of Growth}
     Big Oh (Big-O) can be defined as \textit{the growth rate of f is bounded above by the growth rate of g} if there exists positive numbers \textit{c} and \textit{m} such that \\
