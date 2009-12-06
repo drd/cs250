@@ -6,14 +6,14 @@
 \pdfpagewidth 8.5in
 \pdfpageheight 11in 
 
-\setlength\topmargin{0in}
+\setlength\topmargin{-.250in}
 \setlength\headheight{0in}
 \setlength\headsep{0in}
-\setlength\textheight{8.2in}
-\setlength\textwidth{6in}
-\setlength\oddsidemargin{.25in}
-\setlength\evensidemargin{.25in}
-\setlength{\columnsep}{.25in}
+\setlength\textheight{9.2in}
+\setlength\textwidth{7in}
+\setlength\oddsidemargin{-.25in}
+\setlength\evensidemargin{-.25in}
+\setlength\columnsep{.5in}
 \setlength\footskip{0.5in}
 
 \begin{document}
@@ -109,6 +109,9 @@
 	
 	Two events $A$ and $B$ are \emph{independent} if the following equation holds: $P(A \cap B)=P(A)P(B)$.
 	
+	\subsubsection*{Binomial Distribution}
+	\[\binom{n}{k}p^k(1-p)^{n-k}\]
+
 	\subsection*{5.5.1 Solving Recurrences by Substitution}
 	Substitute occurences $f_n$ on right side of equation until pattern emerges.
 		\[f_0=b_0\]
@@ -116,9 +119,21 @@
 		\[f_n=2^2r_{n-2}+2(n-1)+n\]
 		\[\ldots\]
 	
-	\subsection*{Solving Recurrences by Cancellation}
-	
-			
-	\section*{5.6}
-	
+	\section*{5.6 - Comparing Rates of Growth}
+    Big Oh (Big-O) can be defined as \textit{the growth rate of f is bounded above by the growth rate of g} if there exists positive numbers \textit{c} and \textit{m} such that \\
+    \[ |f(n)| \leq c|g(n)| \: \textrm{for}\: n\geq m\]\\
+    In this case we write $f(n) = O(g(n))$ and we say the $f(n)$ is \textit{big oh of $g(n)$}\\
+    \textbf{Properties of Big Oh}\\
+    \begin{itemize}
+        \item[a.] $f(n)=O(f(n))$
+        \item[b.] If $f(n)=O(g(n))$ and $ g(n)=O(h(n))$, then $f(n)=O(h(n))$
+        \item[c.] If $0\leq f(n) \leq g(n)$ for all $n \geq m$, then $f(n)=O(g(n))$
+        \item[d.] If $f(n)=O(g(n))$ and \textit{a} is any real number, then $af(n)=O(g(n))$
+        \item[e.] If $f_1(n)=O(g(n))$ and $f_2(n)=O(g(n))$, then $f_1(n) + f_2(n) = O(g(n))$
+        \item[f.] If $f_1$ and $f_2$ have nonnegative values and
+          $f_1(n) = O(g_1(n)) and f_2(n) = O(g_2(n))$, then $f_1(n) +
+          f_2(n) = O(g_1(n) + g_2(n))$
+	\end{itemize}
+
 \end{document}
+>>>>>>> dbc2244185e7bead2c17d9ea13ec2f4505e62915:chapter5cheats.tex
