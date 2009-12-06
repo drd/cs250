@@ -26,7 +26,7 @@
 \setlength\footskip{0.5in}
 
 \begin{document}
-	\paragraph*{5.1 Analyzing Algorithms}
+	\paragraph*{Analyzing Algorithms}
 	The Optimal Algorithm Problem: Suppose algorithm $A$ solves
         problem $P$. Is $A$ the best solution to $P$?
 	
@@ -153,6 +153,21 @@
         \end{flushleft}
 	Add equations, cancel like terms, replace $r_0$ by its value.
 	
+	\subsection*{5.5.2 Divide-and-Conquer recurrences}
+	Consider algorithm that splits a problem of size n into a smaller problems, where each subproblem has size n/b.  Let $T(n)$ be total operations to solve problem of size $n$.
+		\[T(n)=aT(n/b)+f(n)\]
+	
+	\subsection*{5.5.3 Generating Functions}
+	The generating function for the sequence $a_0, a_1, \ldots, a_n$ is
+		\[\sum_{n=0}^\infty a_nx^n\]
+	\subsection*{More Generating Functions}
+		\begin{itemize}
+		\item[a.] $\frac{1}{(1-x)^{k+1}}=\sum_{n=0}^\infty \binom{k+n}{n}x^n for r \in \mathbb{N}$
+		\item[b.] $(1+x)^r=\sum_{n=0}^\infty (\frac{r(r-1)\ldots(r-n+1)}{n!})x^n for r \in \mathbb{R}$
+		\end{itemize}
+	\subsection*{Geometric Series}
+		\[\frac{1}{1-x}=\sum_{n=0}^\infty x^n\]
+	
         \paragraph*{Comparing Rates of Growth}
         Big Oh (Big-O) can be defined as \textit{the growth rate of f is
           bounded above by the growth rate of g} if there exists positive
@@ -160,7 +175,7 @@
         c|g(n)| \: \textrm{for}\: n\geq m$. In this case we write $f(n)
         = O(g(n))$ and we say the $f(n)$ is \textit{big oh of $g(n)$}
         \textbf{Properties of Big Oh}
-        \begin{itemize}
+       \begin{itemize}
         \item[a.] $f(n)=O(f(n))$
         \item[b.] If $f(n)=O(g(n))$ and $ g(n)=O(h(n))$, then $f(n)=O(h(n))$
         \item[c.] If $0\leq f(n) \leq g(n)$ for all $n \geq m$, then $f(n)=O(g(n))$
