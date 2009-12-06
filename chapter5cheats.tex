@@ -36,8 +36,7 @@
         $A$ is \emph{optimal in the worst case} for problem $P$, if
         for any algorithm $B$ that exists, or ever will exist, the
         following relationship holds:
-	
-	\[W_A(n)\leq W_B(n),\forall n>0.\]
+	\begin{center}$W_A(n)\leq W_B(n),\forall n>0.$\end{center}
 	
 	\subsection*{5.1.2 Decision Trees}
 	
@@ -79,7 +78,7 @@
         \end{packed_list}
 
 	\subsection*{Abel's Summation Tranformation}
-	$\displaystyle\sum_{k=0}^n a_kb_k = \mathit{A}_nb_n + \sum_{k=0}^{n-1}
+	$\sum_{k=0}^n a_kb_k = \mathit{A}_nb_n + \sum_{k=0}^{n-1}
 	\mathit{A}_k(b_k - b_{k+1}),\\
 	  \:where\:A_k = \sum_{i=0}^k a_k$
 	
@@ -106,22 +105,21 @@
 	An \textit{r-combination} of \textit{n} distinct objects is a
         combination of \textit{r} of the objects. The number of
         \textit{r-combinations} chosen from \textit{n} distinct objects is
-	\[C(n,r)=\frac{n!}{r!(n-r)!}\]
-	\[(x+y)^n=\sum_{k=0}^nC(n,r)x^{n-k}y^k\]
+	\begin{center}$C(n,r)=\frac{n!}{r!(n-r)!}$ or $(x+y)^n=\sum_{k=0}^nC(n,r)x^{n-k}y^k$\end{center}
 	The number of \textit{k}-element bags whose distinct elements
         are chosen from an \textit{n}-element set, where \textit{k}
-        and \textit{n} are positive, is given by
-	\[C(n+k-1, k)\]
+        and \textit{n} are positive, is given by $C(n+k-1, k)$
 
 	\section*{5.4 Discrete Probability}
 	\subsection*{5.4.1 Probability Terminology}
+
 	\textbf{Probability Distribution} A \emph{probability
           distribution} on a sample space $S$ is an assignment of
         probabilities to the points of $S$ such that the sum of all
         the probabilities is 1.
 	\textbf{Probability of an Event} The \emph{probability} of an
         event $E$ is denoted by $P(E)$ and is defined by
-	\[P(E)=\sum_{x\in E}P(x).\]
+	\begin{center}$P(E)=\sum_{x\in E}P(x)$\end{center}
 	For instance, $P(S)=1$ and $P(\emptyset)=0$; $P(A\cup B)=P(A)+P(B)-P(A\cap B); P(E')=1-P(E)$
 	
 	\subsection*{5.4.2 Conditional Probability}
@@ -129,9 +127,11 @@
 	\textbf{Conditional Probability} If $A$ and $B$ are events and
         $P(B)\neq0$, then \emph{the conditional probability of A given
           B} is denoted by $P(A\mid B)$ and defined by
-	\[P(A\mid B)=\frac{P(A\cap B)}{P(B)}\]
-	\[P(A\cap B)=P(B)P(A\mid B)\]
-	\[P(A\cap B)=P(A)P(B\mid A)\]
+	\begin{packed_list}
+          \item $P(A\mid B)=\frac{P(A\cap B)}{P(B)}$
+	\item $P(A\cap B)=P(B)P(A\mid B)$
+	\item $P(A\cap B)=P(A)P(B\mid A)$
+          \end{packed_list}
 
 	\subsubsection*{Bayes' Theorem}
 	\[P(H_i\mid E)=\frac{P(H_i\cap E)}{P(H_1\cup E)+\ldots+P(H_n\cap E)}\]
@@ -147,10 +147,7 @@
 
 	\subsection*{5.5.1 Solving Recurrences by Substitution}
 	Substitute occurences $f_n$ on right side of equation until pattern emerges.
-		\[f_0=b_0\]
-		\[f_n=2f_{n-1}+n\]
-		\[f_n=2^2r_{n-2}+2(n-1)+n\]
-		\[\ldots\]
+	\begin{flushleft}$f_0=b_0$ and $f_n=2f_{n-1}+n$ and $f_n=2^2r_{n-2}+2(n-1)+n$\end{flushleft}
 	
 	\subsection*{Solving Recurrences by Cancellation}
 	Write succeeding equations for $f_n$ such that the term on the
