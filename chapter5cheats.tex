@@ -6,6 +6,14 @@
 \pdfpagewidth 8.5in
 \pdfpageheight 11in 
 
+\newenvironment{packed_list}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
 \setlength\topmargin{-.625in}
 \setlength\headheight{0in}
 \setlength\headsep{0in}
@@ -36,39 +44,39 @@
 	Lower bound on a k-ary decision tree of depth n: $\lceil log_k n\rceil$
 	
 	\subsection*{5.2 Summations Facts}
-        \begin{itemize}
-          \setlength{\itemsep}{0pt}
-          \setlength{\parskip}{0pt}
-          \setlength{\parsep}{0pt}
-
-	\item[a.] $ \sum_{k=m}^n \mathrm{c} = (n - m + 1)\mathrm{c}$ \\
+        \begin{packed_list}
+	\item[a.] $ \sum_{k=m}^n \mathrm{c} = (n - m + 1)\mathrm{c}$ 
 	\item[b.] $ \sum_{k=m}^n \mathrm{c a_\mathit{k}} = c
-	\sum_{k=m}^n \mathrm{a_\mathit{k}}$\\
+	\sum_{k=m}^n \mathrm{a_\mathit{k}}$
 	\item[c.] $\sum_{k=1}^n (a_\mathit{k} - a_\mathit{k - 1}) =
-	a_\mathit{n} - a_\mathit{0}$ \\
+	a_\mathit{n} - a_\mathit{0}$ 
 		and $ \sum_{k=1}^n
-	(a_\mathit{k - 1} - a_\mathit{k}) = a_\mathit{0} - a_\mathit{n}$\\
+	(a_\mathit{k - 1} - a_\mathit{k}) = a_\mathit{0} - a_\mathit{n}$
 	\item[d.] $\sum_{k=m}^n (a_\mathit{k} + b_\mathit{k}) =
 	\sum_{k=m}^n a_\mathit{k} + \sum_{k=m}^n
-	b_\mathit{k}$\\
+	b_\mathit{k}$
 	\item[e.] $\sum_{k=m}^n a_\mathit{k} = \sum_{k=m}^i
-	a_\mathit{k} +  \sum_{k=i+1}^n a_\mathit{k}$\\
+	a_\mathit{k} +  \sum_{k=i+1}^n a_\mathit{k}$
 	\item[f.] $\sum_{k=m}^n a_\mathit{k}x^\mathit{k+i} = 
-	x^\mathit{i} \sum_{k=m}^n a_\mathit{k}x^\mathit{k}$\\
+	x^\mathit{i} \sum_{k=m}^n a_\mathit{k}x^\mathit{k}$
 	\item[g.] $\sum_{k=m}^n a_\mathit{k+i} = \sum_{k=m+i}^{n+1}
-	a_\mathit{k}$\\
-        \end{itemize}
-	\subsection*{Sum of Powers}
+	a_\mathit{k}$
+        \end{packed_list}
+
+	\paragraph*{Sum of Powers}
 	When doing powers of sums we can use the form of $k^m$ can also be
-	represented as \[k^{m+1} - ( k + 1)^{m+1}.\]
+	represented as $k^{m+1} - ( k + 1)^{m+1}.$
 
 	\subsection*{Closed Forms of Elementary Finite Sums}
-	a. $\displaystyle\sum_{k=1}^n k = \frac{n(n+1)}{2}$\\
-	b. $\displaystyle\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$\\
-	c. $\displaystyle\sum_{k=0}^n a^k = \frac{a^{n+1} - 1}{a -1} ( a \neq
-	1)$\\
-	d. $\displaystyle\sum_{k=1}^n ka^k = \frac{a - (n + 1)a^{n+1} +
-	  na^{n+2}}{(a-1)^2} (a \neq 1)$\\
+	\begin{packed_list}
+        \item[a.] $\sum_{k=1}^n k = \frac{n(n+1)}{2}$
+	\item[b.] $\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$
+	\item[c.] $\sum_{k=0}^n a^k = \frac{a^{n+1} - 1}{a -1} ( a \neq
+	1)$
+	\item[d.] $
+\sum_{k=1}^n ka^k = \frac{a - (n + 1)a^{n+1} +
+	  na^{n+2}}{(a-1)^2} (a \neq 1)$
+        \end{packed_list}
 
 	\subsection*{Abel's Summation Tranformation}
 	$\displaystyle\sum_{k=0}^n a_kb_k = \mathit{A}_nb_n + \sum_{k=0}^{n-1}
