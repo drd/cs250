@@ -1,0 +1,87 @@
+\documentclass[10pt,twocolumn, letterpaper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[hmargin=1cm, vmargin=1cm]{geometry}
+\usepackage{listings}
+\begin{document}
+\section{Proofs, Sets, Graphs, and Trees}
+conjunction $ \Rightarrow A \cup B $, disjunction $ \Rightarrow A \cap B $, 
+converse $ if\;x > 0\;and\;y > 0 \Rightarrow x + y > 0 $ or $\;if x + y > 0 \Rightarrow x > 0 \cup y > 0 $, 
+$ '(A \cup B) = 'A \cap 'B $, $ '(A \cap B) = '(A) \cup '(B) $
+
+\section{Functions}
+
+\section{Construction Techniques}
+
+\section{Equivalence, Order, Induction}
+
+\subsection*{Binary Relation Relation properties}
+$ \mathrm{R} $ is \textit{reflexive} if $x \mathrm{R} y$ for all $x,y \in A$. 
+$ \mathrm{R} $ is \textit{symmetric} if $x \mathrm{R} y$ implies $y \mathrm{R} x$ for all $x,y \in A$.
+$ \mathrm{R} $ is \textit{transitive} if $x \mathrm{R} y$ and $y \mathrm{R} z$ implies $x \mathrm{R} z$ for all $x,y,z \in A$. 
+$ \mathrm{R} $ is \textit{irreflexive} if $(x.y) \notin \mathrm{R}$ for all $x \in A$. 
+$ \mathrm{R} $ is \textit{antisymmetric} if $x \mathrm{R} y$ and $y \mathrm{R} x$ implies $x = y$ for all $x,y \in A$. 
+The $<$ on $\mathbb{R}$ is transitive, symmetric, reflexive, and antisymmetric. 
+The $\leq$ relation on $\mathbb{R}$ is reflexive,transitive and antisymmetric.
+The ``is parent of'' relation is irreflexive and antisymmetric.
+
+\subsection*{Composition of Relations}
+If $\mathrm{R} \circ \mathrm{S} = \lbrace(a,c) \vert (a,b) \in \mathrm{R}$ and $(b,c) \in \mathrm{S}$ for some element $b\rbrace$.
+To construct the ``isGrandparentOf'' relation we can compose ``isParentOf''.
+$isGrandparentOf = isParentOf \circ isParentOf$. If we try an combine relations, ie: $ x(> \circ <) y$ iff there is some
+number $z$ such that $x > y$ and $z < y$ With $\mathbb{R}$ we know there is always another number $z$ that is less than both.
+So the whole composition must be $\mathbb{R} \times \mathbb{R}$. 
+
+\subsection*{Properties of combining Relations}
+$\mathrm{R} \circ (\mathrm{S} \circ \mathrm{T}) = (\mathrm{R} \circ \mathrm{S}) \circ \mathrm{T}$\\
+$\mathrm{R} \circ (\mathrm{S} \cup \mathrm{T}) = \mathrm{R} \circ \mathrm{S} \cup \mathrm{R} \circ \mathrm{T}$\\
+$\mathrm{R} \circ (\mathrm{S} \cap \mathrm{T}) = \mathrm{R} \circ \mathrm{S} \cap \mathrm{R} \circ \mathrm{T}$\\
+
+\subsection*{Equivalence Relations}
+Any binary relation that is reflexive, symmetric and transitive is called an \textit{equivalence relation}. The intersection property of equivalence
+follows: if $\mathrm{E}$ and $\mathrm{F}$ are equivalence relations on the set $\mathrm{A}$, then $\mathrm{E} \cap \mathrm{F}$ is an eq. rel. on $\mathrm{A}$. 
+We can also say $ x \thicksim y$ iff $x \mathrm{E} y $ and $ x \mathrm{F} y$ which can also be said, $x \thicksim y$ iff $ (x,y) \in \mathrm{E} \cap \mathrm{F}$
+
+\subsection*{Kernel Relations: eq rel on functions}
+Notice that we can show $x \thicksim y$ niff $f(x) = f(y)$. This is called the kernel relation of $f$. 
+Mod is one function that can be defined $ x \thicksim$ iff $x$ mod $n = y$ mod $n$.
+
+\subsection*{Equivalence Classes}
+Let $\mathrm{R}$ be an eq rel on a set $\mathrm{S}$. If $ a \in \mathrm{S}$, then the eq class of $a$ by [a] is the subset of $\mathrm{S}$ consisting of all
+elements that are eq to $a$. In other words we have $ [a] = \lbrace x \in \mathrm{S} \vert x \mathrm{R} a \rbrace$. 
+The property of equivalences is as follows: Let $\mathrm{S}$ be a set with an equivalence relation $\mathrm{R}$. If $a,b \in \mathrm{S}$, 
+then either $[a] = [b]$ or $[a] \cap [b] = \O$. Partitions are the collection of nonempty subsets that are disjoint whose union is the whole set. For 
+example $\mathrm{S} = \lbrace 1, 2, 3, 4, 5, 6, 7, 8, 9 \rbrace$ can be paritioned in many ways, one of which consists 
+of $\lbrace 0, 1, 4, 9\rbrace, \lbrace 2,5,8 \rbrace, \lbrace 3,6,7 \rbrace$. We could also say $[0] = \lbrace 0,1,4,9\rbrace,\; [2] = \lbrace 2,5,8\rbrace,\;
+[3] = \lbrace 3,6,7 \rbrace$. This is generalized into the rule; If $\mathrm{R}$ is an eq. rel on the set $\mathrm{S}$, then the eq classes form a partition of
+$\mathrm{S}$. COnversely, if $\mathrm{P}$ is a partition of a set $\mathrm{S}$, then there is an eq rel on $\mathrm{S}$ whose eq classe are sets of $\mathrm{P}$.
+
+\subsection*{Partial Orders}
+A binary relation is called a \textit{partial order} if it is antisymmetric, transitive, and either reflexive or irreflexive. 
+The set over which a partial order is defined is called a \textit{partially ordered set} or \textit{poset} for short. If we want to 
+emphasize that $\mathrm{R}$ is the partial order that makes $\mathrm{S}$ a poset, we'll write $\langle \mathrm{S},\mathrm{R} \rangle$. 
+Symbols used: \textit{irreflexive partial order} or $\prec$ and \textit{reflexive partial order} or $\preceq$. 
+These are read as $a \prec b$ or $a$ is less than $b$ and $a \preceq b$ or $a$ is less than or equal to $b$.
+We can define them with each other too: $\preceq = \prec \cup \lbrace (x,x) \vert x \in \mathrm{A}\rbrace$ and 
+$\prec = \preceq - \lbrace(x,x) \vert x \in \mathrm{B}\rbrace$. We talk of \textit{predecessors} like so: $\lbrace z \in A \vert x \prec z \prec y \rbrace = \O$.
+We can also say that $y$ is an \textit{immediate successor} of $x$ here. An element in a poset is considered a \textit{minimal} element of $\mathrm{S}$ if it has no
+predecessors. An element is the \textit{least} if $x \preceq y$ for all $y \in \mathrm{S}$. The \textit{maximal} element and \textit{greatest} elements are
+simply the reverse. 
+
+\subsection*{Inductive Proof}
+The important thing to remember about applying inductive proof techniques is to \textit{make an assumption} then \textit{use the assumption} just made.
+The \textbf{Principle of Mathmatical Induction} follows: Let $m \in \mathbb{Z}$. To prove that $\mathrm{P}(n)$ is true for all integers $n \geq m$, 
+perform the following two steps: \\
+1. Prove that $\mathrm{P}(n)$ is true.\\
+2. Assume that $\mathrm{P}(k)$ is true for an arbitrary $k \geq m$. Prove that $\mathrm{P}(k + 1)$ is true.\\
+\textbf{Second Principle of Induction}: Let $m \in \mathbb{Z}$. To prove that $\mathrm{P}(n)$ is true for all integers $n \geq m$, perform the following
+two steps.\\
+1. Prove that $\mathrm{P}(m)$ is true.\\
+2. Assume that n is an arbitrary integer $n > m$, and assume that $\mathrm{P}(k)$ is true for all $k$ in the interval $m \leq k < n$. Prove that $\mathrm{P}(n)$ is true.
+
+\end{document}
+
+
+
