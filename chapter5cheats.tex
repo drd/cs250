@@ -36,23 +36,28 @@
 	Lower bound on a k-ary decision tree of depth n: $\lceil log_k n\rceil$
 	
 	\subsection*{5.2 Summations Facts}
-	a. $\displaystyle \sum_{k=m}^n \mathrm{c} = (n - m + 1)\mathrm{c}$ \\
-	b. $\displaystyle \sum_{k=m}^n \mathrm{c a_\mathit{k}} = c
-	\displaystyle\sum_{k=m}^n \mathrm{a_\mathit{k}}$\\
-	c. $\displaystyle\sum_{k=1}^n (a_\mathit{k} - a_\mathit{k - 1}) =
-	a_\mathit{n} - a_\mathit{0}$ \\
-		and $ \displaystyle\sum_{k=1}^n
-	(a_\mathit{k - 1} - a_\mathit{k}) = a_\mathit{0} - a_\mathit{n}$\\
-	d. $\displaystyle\sum_{k=m}^n (a_\mathit{k} + b_\mathit{k}) =
-	\displaystyle\sum_{k=m}^n a_\mathit{k} + \displaystyle\sum_{k=m}^n
-	b_\mathit{k}$\\
-	e. $\displaystyle\sum_{k=m}^n a_\mathit{k} = \displaystyle\sum_{k=m}^i
-	a_\mathit{k} +  \displaystyle\sum_{k=i+1}^n a_\mathit{k}$\\
-	f. $\displaystyle\sum_{k=m}^n a_\mathit{k}x^\mathit{k+i} = 
-	x^\mathit{i} \sum_{k=m}^n a_\mathit{k}x^\mathit{k}$\\
-	g. $\displaystyle\sum_{k=m}^n a_\mathit{k+i} = \displaystyle\sum_{k=m+i}^{n+1}
-	a_\mathit{k}$\\
+        \begin{itemize}
+          \setlength{\itemsep}{0pt}
+          \setlength{\parskip}{0pt}
+          \setlength{\parsep}{0pt}
 
+	\item[a.] $ \sum_{k=m}^n \mathrm{c} = (n - m + 1)\mathrm{c}$ \\
+	\item[b.] $ \sum_{k=m}^n \mathrm{c a_\mathit{k}} = c
+	\sum_{k=m}^n \mathrm{a_\mathit{k}}$\\
+	\item[c.] $\sum_{k=1}^n (a_\mathit{k} - a_\mathit{k - 1}) =
+	a_\mathit{n} - a_\mathit{0}$ \\
+		and $ \sum_{k=1}^n
+	(a_\mathit{k - 1} - a_\mathit{k}) = a_\mathit{0} - a_\mathit{n}$\\
+	\item[d.] $\sum_{k=m}^n (a_\mathit{k} + b_\mathit{k}) =
+	\sum_{k=m}^n a_\mathit{k} + \sum_{k=m}^n
+	b_\mathit{k}$\\
+	\item[e.] $\sum_{k=m}^n a_\mathit{k} = \sum_{k=m}^i
+	a_\mathit{k} +  \sum_{k=i+1}^n a_\mathit{k}$\\
+	\item[f.] $\sum_{k=m}^n a_\mathit{k}x^\mathit{k+i} = 
+	x^\mathit{i} \sum_{k=m}^n a_\mathit{k}x^\mathit{k}$\\
+	\item[g.] $\sum_{k=m}^n a_\mathit{k+i} = \sum_{k=m+i}^{n+1}
+	a_\mathit{k}$\\
+        \end{itemize}
 	\subsection*{Sum of Powers}
 	When doing powers of sums we can use the form of $k^m$ can also be
 	represented as \[k^{m+1} - ( k + 1)^{m+1}.\]
