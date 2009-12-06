@@ -120,6 +120,24 @@
 	
 	\section*{5.5}
 	
-	\section*{5.6}
-	
+	\section*{5.6 - Comparing Rates of Growth}
+        Big Oh (Big-O) can be defined as \textit{the growth rate of f
+          is bounded above by the growth rate of g} if there exits
+        positive numbers \textit{c} and \textit{m} such that \\
+        \[ |f(n)| \leq c|g(n)| \: \textrm{for}\: n\geq m\]\\
+        In this case we write $f(n) = O(g(n))$ and we say the $f(n)$
+        is \textit{big oh of $g(n)$}\\
+        \textbf{Properties of Big Oh}\\
+        \begin{itemize}
+        \item[a.] $f(n)=O(f(n))$
+        \item[b.] If $f(n)=O(g(n))$ and $ g(n)=O(h(n))$, then $f(n)=O(h(n))$
+        \item[c.] If $0\leq f(n) \leq g(n)$ for all $n \geq m$, then $f(n)=O(g(n))$
+        \item[d.] If $f(n)=O(g(n))$ and \textit{a} is any real number, then $af(n)=O(g(n))$
+        \item[e.] If $f_1(n)=O(g(n))$ and $f_2(n)=O(g(n))$, then $f_1(n) + f_2(n) = O(g(n))$
+        \item[f.] If $f_1$ and $f_2$ have nonnegative values and
+          $f_1(n) = O(g_1(n)) and f_2(n) = O(g_2(n))$, then $f_1(n) +
+          f_2(n) = O(g_1(n) + g_2(n))$
+	\end{itemize}
+
+
 \end{document}
