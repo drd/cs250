@@ -1,0 +1,122 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage{listings,amssymb,amsmath,amsthm}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in 
+
+\setlength\topmargin{0in}
+\setlength\headheight{0in}
+\setlength\headsep{0in}
+\setlength\textheight{8.2in}
+\setlength\textwidth{6in}
+\setlength\oddsidemargin{.25in}
+\setlength\evensidemargin{.25in}
+\setlength{\columnsep}{.25in}
+\setlength\footskip{0.5in}
+
+\begin{document}
+	\section*{5.1 Analyzing Algorithms}
+	
+	The Optimal Algorithm Problem: Suppose algorithm $A$ solves problem $P$. Is $A$ the best solution to $P$?
+	
+	\subsection*{5.1.1 Worst-Case Running Time}
+	
+	\textbf{Definition of Optimal in the Worst Case} An algorith $A$ is \emph{optimal in the worst case} for problem $P$, if for any algorithm $B$ that exists, or ever will exist, the following relationship holds:
+	
+	\[W_A(n)\leq W_B(n),\forall n>0.\]
+	
+	\subsection*{5.1.2 Decision Trees}
+	
+	Lower bound on a k-ary decision tree of depth n: $\lceil log_k n\rceil$
+	
+
+	\section*{5.2}
+	
+	\subsection*{Summations Facts}
+	a. $\displaystyle \sum_{k=m}^n \mathrm{c} = (n - m + 1)\mathrm{c}$ \\
+	b. $\displaystyle \sum_{k=m}^n \mathrm{c a_\mathit{k}} = c
+	\displaystyle\sum_{k=m}^n \mathrm{a_\mathit{k}}$\\
+	c. $\displaystyle\sum_{k=1}^n (a_\mathit{k} - a_\mathit{k - 1}) =
+	a_\mathit{n} - a_\mathit{0}$ and $ \displaystyle\sum_{k=1}^n
+	(a_\mathit{k - 1} - a_\mathit{k}) = a_\mathit{0} - a_\mathit{n}$\\
+	d. $\displaystyle\sum_{k=m}^n (a_\mathit{k} + b_\mathit{k}) =
+	\displaystyle\sum_{k=m}^n a_\mathit{k} + \displaystyle\sum_{k=m}^n
+	b_\mathit{k}$\\
+	e. $\displaystyle\sum_{k=m}^n a_\mathit{k} = \displaystyle\sum_{k=m}^i
+	a_\mathit{k} +  \displaystyle\sum_{k=i+1}^n a_\mathit{k}$\\
+	f. $\displaystyle\sum_{k=m}^n a_\mathit{k}x^\mathit{k+i} = 
+	x^\mathit{i} \sum_{k=m}^n a_\mathit{k}x^\mathit{k}$\\
+	g. $\displaystyle\sum_{k=m}^n a_\mathit{k+i} = \displaystyle\sum_{k=m+i}^{n+1}
+	a_\mathit{k}$\\
+
+	\subsection*{Sum of Powers}
+	When doing powers of sums we can use the form of $k^m$ can also be
+	represented as $k^{m+1} - ( k + 1)^{m+1}$.
+
+	\subsection*{Closed Forms of Elementary Finite Sums}
+	a. $\displaystyle\sum_{k=1}^n k = \frac{n(n+1)}{2}$\\
+	b. $\displaystyle\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$\\
+	c. $\displaystyle\sum_{k=0}^n a^k = \frac{a^{n+1} - 1}{a -1} ( a \neq
+	1)$\\
+	d. $\displaystyle\sum_{k=1}^n ka^k = \frac{a - (n + 1)a^{n+1} +
+	  na^{n+2}}{(a-1)^2} (a \neq 1)$\\
+
+	\subsection*{Abel's Summation Tranformation}
+	$\displaystyle\sum_{k=0}^n a_kb_k = \mathit{A}_nb_n + \sum_{k=0}^{n-1}
+	\mathit{A}_k(b_k - b_{k+1}),  \:where\:A_k = \sum_{i=0}^k a_k$\\
+	
+
+	\section*{5.3}
+	
+	\subsection*{Counting Rules}
+	If there are \textit{m} choices for some event and \textit{n} choices for another event to occur and events are disjoint, then there are \textit{m + n} choices for either event to occur. \\
+	If there are \textit{m} choices for some event and \textit{n} choices for another event, then there are \textit{mn} choices for both events.
+	\subsection*{Permutations}
+	An arangement (or ordering) of distinct objects without replacement. \\
+	The number of permutations of \textit{n} distinct objects is \textit{n!}. \\
+	An \textit{r-permutation} of \textit{n} objects is a permutation of \textit{r} of the objects. \\
+	The number of r-permutations of \textit{n} distinct objects is \\
+	$P(n, r)=\frac{n!}{(n - r)!}$ \\
+	B is an \textit{n}-element bag with \textit{k} distinct elements, where each of the numbers $m_1,\ldots,m_k$ denotes number of occurences of each element.  The number of permutations of the \textit{n} elements of B is $\frac{n!}{m_1! \ldots m_k!}$
+	\subsection*{Combinations}
+	Chosing some objects from set of objects without order.
+	An \textit{r-combination} of \textit{n} distinct objects is a combination of \textit{r} of the objects.  The number of \textit{r-combinations} chosen from \textit{n} distinct objects is
+	$C(n,r)=\frac{n!}{r!(n-r)!}$ \\
+	$(x+y)^n=\sum_{k=0}^nC(n,r)x^{n-k}y^k$ \\
+	The number of \textit{k}-element bags whose distinct elements are chosen from an \textit{n}-element set, where \textit{k} and \textit{n} are positive, is given by
+	$C(n+k-1, k)$
+
+
+	\section*{5.4 Discrete Probability}
+
+	\subsection*{5.4.1 Probability Terminology}
+
+	\par\textbf{Probability Distribution} A \emph{probability distribution} on a sample space $S$ is an assignment of probabilities to the points of $S$ such that the sum of all the probabilities is 1.
+	\par\noindent\textbf{Probability of an Event} The \emph{probability} of an event $E$ is denoted by $P(E)$ and is defined by
+	\[P(E)=\sum_{x\in E}P(x).\]
+	For instance, $P(S)=1$ and $P(\emptyset)=0$; $P(A\cup B)=P(A)+P(B)-P(A\cap B); P(E')=1-P(E)$
+	
+	\subsection*{5.4.2 Conditional Probability}
+	
+	\textbf{Conditional Probability} If $A$ and $B$ are events and $P(B)\neq0$, then \emph{the conditional probability of A given B} is denoted by $P(A\mid B)$ and defined by
+	\[P(A\mid B)=\frac{P(A\cap B)}{P(B)}\]
+	\[P(A\cap B)=P(B)P(A\mid B)\]
+	\[P(A\cap B)=P(A)P(B\mid A)\]
+
+	\subsubsection*{Bayes' Theorem}
+	\[P(H_i\mid E)=\frac{P(H_i\cap E)}{P(H_1\cup E)+\ldots+P(H_n\cap E)}\]
+	\[P(H_i\mid E)=\frac{P(H_i\cap E)}{P(H_1)P(E\mid H_1)+\ldots+P(H_n)P(E\mid  H_n)}\]
+	
+	\subsection*{5.4.3 Independent Events}
+	
+	Two events $A$ and $B$ are \emph{independent} if the following equation holds: $P(A \cap B)=P(A)P(B)$.
+	
+	
+	
+	\section*{5.5}
+	
+	\section*{5.6}
+	
+\end{document}

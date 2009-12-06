@@ -1,0 +1,160 @@
+%% LyX 1.6.4.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[10pt,twocolumn,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=1cm,bmargin=1cm,lmargin=1cm,rmargin=1cm,columnsep=1cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{babel}
+
+\begin{document}
+
+\section{Inductively Defined Sets}
+
+$A=\{3,5,7,9,\text{\ldots\}}$ can be represented as $A=\{2k+3\mid k\in\mathbb{N}\}$
+
+But we can also describe A by saying $3\in A\Rightarrow x+2\in A$
+and nothing else is in A.
+
+\textbf{Sets specified as unions of inductively defined sets: }$A=\{2,3,4,7,8,11,15,16,...\}$
+can be expressed as $B\cup C$, $B=\{2,4,8,16,...\}$ and $C=\{3,7,11,15\}$
+
+$Basis$: $2,3\in A$
+
+$Induction$: If $x\in A$ and x is odd, then $x+4\in A$
+
+\qquad{}\qquad{}\qquad{}If $x\in A$ and x is even, then $2x\in A$
+
+
+\subsection{Strings}
+
+\textbf{All Strings over A:} $Basis$: $\Lambda\in A$, $Induction$:
+If $s\in A*$and $a\in A$, then $as\in A*$
+
+\textbf{Inductive Definition of Languages}: $S=\{a,ab,abb,abbb\}=\{ab^{n}\mid n\in\mathbb{N}\}$
+
+$Basis$: $a\in S$, $Induction$: If $x\in S$, then $xb\in S$
+
+
+\subsection{Lists}
+
+$\left\langle x,y,z\right\rangle =cons\left(x,\left\langle y,z\right\rangle \right)=$
+
+$cons\left(head\left(\left\langle x,y,z\right\rangle \right),tail\left(\left\langle x,y,z\right\rangle \right)\right)$
+
+Don't forget, $cons(x,\langle y,z\rangle)=x::\langle y,z\rangle$
+
+\textbf{All lists over A:} $Basis$: $\left\langle \right\rangle \in lists(A)$,
+$Induction$: If $x\in A$ and $L\in lists(A)$, then $cons(x,L)\in lists(A)$
+
+
+\subsection{Binary Trees}
+
+\textbf{All Binary Trees over A:} $Basis$: $\langle\rangle\in B$,
+$Induction$: If $x\in A$and $L,R\in B$, then $tree(L,x,R)\in B$
+
+
+\subsection{Cartesian Products of Sets}
+
+\textbf{Cartesian Product:} $Basis$: $(0,a)\in\mathbb{N}\times A$
+$\forall a\in A$, $Induction$: If $(x,y)\in\mathbb{N}\times A$,
+then $(x+1,y)\in\mathbb{N}\times A$
+
+\textbf{Part of a plane:} Let $S=\{(x,y)\mid x,y\in\mathbb{N}$and
+$x\leq y\}$. S is set of points in first quadrant, on or above the
+main diagonal.
+
+$Basis$: $(0,0)\in S$, $Induction$: If $(x,y)\in S$, then $(x,y+1),(x+1,y+1)\in S$
+
+
+\section{Recursive Functions}
+
+A function or procedure is recursively defined if defined in terms
+of itself. Constructing a recursively defined function: if S is inductively
+defined set, then construct function $f$ with domain $S$ as follows:
+1. fo each basis element $x\in S$, specify value for $f(x)$; 2.
+give rules that for any inductively defined element $x\in S$, specify
+a value for $f(x)$.
+
+
+\subsection{Numbers}
+
+Let $f:\mathbb{N}\rightarrow\mathbb{N}$ be defined in terms of floor
+as follows:
+
+$f(0)=0$, $f(n)=f(floor(n/2))+n$ for $n>0$, then:
+
+$f(25)=f(12)+25=f(6)+12+25=f(3)+6+12+25=f(1)+3+6+12+25=f(0)+1+3+6+12+25=0+1+3+6+12+25=47$
+
+
+\subsection{Lists}
+
+Consider $f:\mathbb{N}\rightarrow lists(\mathbb{N})$ which computes
+the backward sequence: $f(n)=\langle n,n-1,...,1,0\rangle.$We can
+define this recursively as: $f(0)=\langle0\rangle,f(n)=n::f(n-1)$
+for $n>0$.
+
+\textbf{The pairs function:}
+
+$pairs(\langle a,b,c\rangle,\langle1,2,3\rangle)=\langle(a,1),(b,2),(c,3)\rangle=$
+
+$(a,1)::\langle(b,2),(c,3)\rangle=(a,1)::pairs(\langle b,c\rangle,\langle2,3\rangle)$.
+So pairs can be defined recursively as: 
+
+$pairs(\langle\rangle,\langle\rangle)=\langle\rangle)$, $pairs(x::T,y::U)=(x,y)::pairs(T,U)$
+
+
+\subsection{Binary Trees}
+
+\textbf{Preorder traversal:} visit(root), preorder(L), preorder(R).\textbf{ }
+
+\textbf{Inorder traversal:} inorder(L), visit(root), inorder(R).\textbf{ }
+
+\textbf{Postorder traversal:} postorder(L), postorder(R), visit(root).
+
+
+\section{Grammars}
+
+Example: $A=\{a,b,c\}$, the grammar for the language $A^{*}$ has
+4 productions:$\{S\rightarrow\Lambda,S\rightarrow aS,S\rightarrow bS,s\rightarrow cS\}$.
+A Grammar is a 4-tuple:
+
+1. alphabet $N$ of nonterminals, 2. alphabet $T$ of $terminals$,
+distinct from nonterminals, 3. specific nonterminal $S$ called start
+symbol, 4. finite set of products of form $\alpha\rightarrow\beta$,
+where $\alpha$ and $\beta$ are strings over $N\cup T$ and $\alpha\neq\Lambda$.
+
+
+\subsection{Derivations}
+
+If $x$ and $y$ are sentential forms and $\alpha\rightarrow\beta$
+is a production, then replacement of $\alpha$ by $\beta$ in $x\alpha y$
+is called a derivation step, written: $x\alpha y\Rightarrow x\beta y$.
+
+$\Rightarrow$derives in one step; $\Rightarrow^{+}$ derives in one
+or more steps; $\Rightarrow^{*}$ derives in zero or more steps
+
+\textbf{The language of a grammar:} if $G$ is a grammar with start
+symbol $S$ and set of terminals $T$, then language of $G$ is the
+set $L(G)=\{s\mid s\in T^{*}$and $S\Rightarrow^{+}s\}$
+
+A grammar is \textbf{recursive} if it contains a recursive production
+or indirectly recursive production. $S\rightarrow b\mid aA$, $A\rightarrow c\mid bS$
+is indirectly recursive because $S\Rightarrow aA\Rightarrow abS$,
+and $A\Rightarrow bS\Rightarrow baA$.
+
+\textbf{Constructing an inductive defintion for L(G):} $G:S\rightarrow\Lambda\mid aB,B\rightarrow b\mid bB.$
+2 derivatives don't contain recursive productions: $S\Rightarrow\Lambda$,
+and $S\Rightarrow aB\Rightarrow ab.$ This is basis: $\Lambda,ab\in L(G)$.
+Only recursive production of $G$ is $B\rightarrow bB.$ Any element
+of $L(G)$ whose derivation contains $B$ must have form $S\Rightarrow aB\Rightarrow^{+}ay$
+for some string $y$. Then we can say $S\Rightarrow aB\Rightarrow abB\Rightarrow^{+}aby$.
+$Induction:$ If $ay\in L(G)$, then put $aby$ in $L(G).$
+
+\textbf{Constructing grammars:} $L=\{\Lambda,ab,aabb,...,a^{n}b^{n},...\}=\{a^{n}b^{n}\mid n\in\mathbb{N}\}$.
+Grammar: $S\rightarrow\Lambda\mid aSb$.
+\end{document}
