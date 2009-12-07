@@ -2,6 +2,5 @@
 *.lyx
 *.aux
 *.log
-*.pdf
 *.synctex.gz
 
