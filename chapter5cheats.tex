@@ -136,7 +136,7 @@
         equation holds: $P(A \cap B)=P(A)P(B)$.
 	
 	\paragraph*{Binomial Distribution}
-	$\binom{n}{k}p^k(1-p)^{n-k}$
+	\[\binom{n}{k}p^k(1-p)^{n-k}\]
 
 	\paragraph*{Solving Recurrences by Substitution}
 	Substitute occurences $f_n$ on right side of equation until pattern emerges.
@@ -167,6 +167,7 @@
 	\subsection*{Geometric Series}
 		\[\frac{1}{1-x}=\sum_{n=0}^\infty x^n\]
 	
+	\subsection*{5.6 Big-O Face Notation}
         \paragraph*{Comparing Rates of Growth}
         Big Oh (Big-O) can be defined as \textit{the growth rate of f is
           bounded above by the growth rate of g} if there exists positive
@@ -184,5 +185,19 @@
           $f_1(n) = O(g_1(n)) and f_2(n) = O(g_2(n))$, then $f_1(n) +
           f_2(n) = O(g_1(n) + g_2(n))$
 	\end{itemize}
+	
+	\subsection*{Bonus: Partial Infractions}
+	
+	Consider expressions of following form, where $p(x)$ and $q(x)$ are two polynomials and the degree of $p(x)$ is less than the degree of $q(x)$:
+	\[\frac{p(x)}{q(x)}\]
+	For example, if we have
+	\[\frac{x+1}{(2x-1)(3x-1)}\]
+	Then we can write
+	\[\frac{x+1}{(2x-1)(3x-1)}=\frac{A}{2x-1}+\frac{B}{3x-1}\]
+	We need two equations in $A$ and $B$. One way is to pick values for $x$ such that none of the denominators are made zero. For instance, picking $x=0$ and $x=1$ yields:
+	\[1=-A-B\]
+	\[1=A+B/2\]
+	Solving for $A$ and $B$ yields $A=3$ and $B=-4$, so the partial fraction representation of the expression is:
+	\[\frac{x+1}{(2x-1)(3x-1)}=\frac{3}{2x-1}-\frac{4}{3x-1}\]
 
 \end{document}
